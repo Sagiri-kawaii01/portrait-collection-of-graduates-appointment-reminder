@@ -32,7 +32,7 @@ mail:
     port: 465
     # 发送邮箱账号
     user: zhiyinnitaimei
-# 预约计划
+# 预约计划，支持多个
 plan:
 - date: '2022-10-26' # 预约日期，需要加引号
   mail: 12345@qq.com # 通知邮箱
