@@ -5,6 +5,7 @@ import smtplib
 from email.mime.text import MIMEText
 import yaml
 from json import dumps
+import os
 
 def get_next_next_days(offset):
     # 今天日期
@@ -59,7 +60,7 @@ offset = [0, 7]
 # 邮件内容
 content = ''
 cfg = dict()
-with open('config.yml', encoding='utf-8', mode='r') as f:
+with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='r') as f:
     # 读取配置文件
     cfg = yaml.safe_load(f)
     mail_host = cfg['mail']['sender']['host']
@@ -122,5 +123,5 @@ with open('config.yml', encoding='utf-8', mode='r') as f:
         send(content, receivers, mail_host, port, mail_user, mail_pass)
 
 
-with open('config.yml', encoding='utf-8', mode='w') as f:
+with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='w') as f:
     yaml.dump(cfg, f)
