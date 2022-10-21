@@ -1,0 +1,27 @@
+mail:
+  receivers:
+  - 1104738025@qq.com
+  - 1135664656@qq.com
+  - 910638442@qq.com
+  sender:
+    address: lgz1104738025@163.com
+    host: smtp.163.com
+    password: UGTACYYAULPISHXG
+    port: 465
+    user: lgz1104738025
+plan:
+- date: '2022-10-26'
+  mail: 1104738025@qq.com
+  openid: oav9qwpTmUWC-B7H3fP8P6zlipCs
+  success: true
+  time: 11:00-11:30
+- date: '2022-11-02'
+  mail: 1135664656@qq.com
+  openid: oav9qwsD2okG2Nw5gyauoIe3QKGk
+  success: false
+  time: 11:00-11:30
+- date: '2022-11-02'
+  mail: 910638442@qq.com
+  openid: oav9qwsxdtZgxp92-P_zb_fOJt38
+  success: false
+  time: 11:00-11:30
