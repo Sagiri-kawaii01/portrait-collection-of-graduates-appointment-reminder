@@ -12,8 +12,8 @@ def get_next_next_days(offset):
     today = date.today()
     # 今天周几，1-6周一到周六，0周日
     weekday = int(today.strftime('%w'))
-    next3 = (3 - weekday) if weekday <= 3 else (10 - weekday) + offset
-    next4 = (4 - weekday) if weekday <= 4 else (11 - weekday) + offset
+    next3 = ((3 - weekday) if weekday <= 3 else (10 - weekday)) + offset
+    next4 = ((4 - weekday) if weekday <= 4 else (11 - weekday)) + offset
     return ['', '', '', (today + timedelta(next3)).strftime('%Y-%m-%d'), (today + timedelta(next4)).strftime('%Y-%m-%d')]
 
 def send(content, receivers, mail_host, port, mail_user, mail_pass):
