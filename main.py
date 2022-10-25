@@ -7,6 +7,7 @@ import yaml
 from json import dumps
 import os
 
+
 def get_next_next_days(offset):
     # 今天日期
     today = date.today()
@@ -61,6 +62,7 @@ offset = [0, 7]
 content = ''
 cfg = dict()
 with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='r') as f:
+    
     # 读取配置文件
     cfg = yaml.safe_load(f)
     mail_host = cfg['mail']['sender']['host']
@@ -81,6 +83,7 @@ with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='r')
 
         url = ['', '', '', url3, url4]
         for i in range(3, 5):
+            content = ''
             data = requests.get(url[i], headers=headers).json()
             if data['statusCode'] == 201:
                 print('周' + day_name[i] + dt[i] + ':' + data['message'])
@@ -108,19 +111,24 @@ with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='r')
                                 }
                                 res_data = requests.post(addurl, data=dumps(json_data), headers=headers).json()
                                 if res_data['statusCode'] == 200:
+                                    print('为 ' + p['name'] + ' 预约（' + p['date'] + ' ' + p['time'] + '）成功，开始发送邮件')
                                     send('预约成功', [p['mail']], mail_host, port, mail_user, mail_pass)
                                     # 稍后会写入配置文件
                                     p['success'] = True
-                                    print('预约成功邮件 发送成功')
+                                    print('邮件发送成功，返回数据为：')
+                                    print(res_data)
 
                 if 0 == cnt:
                     print('周' + day_name[i] + dt[i] + ':' + '全都已满')
             else:
                 print('出现未知错误')
+            # 发送邮件，同一天的只会发送一次
+            if content != '' and not (dt[i] in cfg['mail']['sent']):
+                send(content, receivers, mail_host, port, mail_user, mail_pass)
+                cfg['mail']['sent'].append(dt[i])
+                
 
-    # 发送邮件
-    if content != '':
-        send(content, receivers, mail_host, port, mail_user, mail_pass)
+    
 
 
 with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='w') as f:
