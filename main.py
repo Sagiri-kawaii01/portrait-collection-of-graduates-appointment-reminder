@@ -82,14 +82,14 @@ with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='r')
         url4 = baseurl + '?typeid=' + str(typeid) + '&dt=' + dt[4]
 
         url = ['', '', '', url3, url4]
-        for i in range(3, 5):
+        for i in range(3, 5): # 依次获取周三和周四
             content = ''
             data = requests.get(url[i], headers=headers).json()
             if data['statusCode'] == 201:
-                print('周' + day_name[i] + dt[i] + ':' + data['message'])
-            elif data['statusCode'] == 200:
+                print('周' + day_name[i] + '(' + dt[i] + '):' + data['message'])
+            elif data['statusCode'] == 200: # 成功获取到数据
                 cnt = 0
-                for item in data['data']['appointmentdata']:
+                for item in data['data']['appointmentdata']: # 遍历这一天所有可以预约的时间段
                     id = item['id']
                     appointCount = item['appointCount']
                     appointNum = item['appointNum']
@@ -101,18 +101,19 @@ with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='r')
                             appointNum - appointCount) + '名额(' + str(appointCount) + '/' + str(appointNum) + ')\n'
                         # 在配置文件中寻找想要预约这个事件段的人
                         for p in plan:
-                            # 存在并且还没预约过
-                            if dt[i] == p['date'] and dateSlot == p['time'] and p['success'] == False:
+                            time_map = p['time']
+                            # 存在于预约计划并且还没预约过
+                            if dt[i] in time_map and dateSlot in time_map[dt[i]] and p['success'] == False:
                                 json_data = {
                                     "ID": id,
                                     "OpenID": plan[0]['openid'],
-                                    "DateSlot": plan[0]['time'],
-                                    "AppointDate": plan[0]['date']
+                                    "DateSlot": dateSlot,
+                                    "AppointDate": dt[i]
                                 }
                                 res_data = requests.post(addurl, data=dumps(json_data), headers=headers).json()
                                 if res_data['statusCode'] == 200:
-                                    print('为 ' + p['name'] + ' 预约（' + p['date'] + ' ' + p['time'] + '）成功，开始发送邮件')
-                                    send('预约成功', [p['mail']], mail_host, port, mail_user, mail_pass)
+                                    print('为 ' + p['name'] + ' 预约（' + dt[i] + ' ' + dateSlot + '）成功，开始发送邮件')
+                                    send('预约成功：' + dt[i] + ' ' + dateSlot, [p['mail']], mail_host, port, mail_user, mail_pass)
                                     # 稍后会写入配置文件
                                     p['success'] = True
                                     print('邮件发送成功，返回数据为：')
