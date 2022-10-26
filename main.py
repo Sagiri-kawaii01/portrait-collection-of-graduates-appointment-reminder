@@ -106,7 +106,7 @@ with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='r')
                             if dt[i] in time_map and dateSlot in time_map[dt[i]] and p['success'] == False:
                                 json_data = {
                                     "ID": id,
-                                    "OpenID": plan[0]['openid'],
+                                    "OpenID": p['openid'],
                                     "DateSlot": dateSlot,
                                     "AppointDate": dt[i]
                                 }
