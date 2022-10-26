@@ -141,5 +141,5 @@ dmypy.json
 cython_debug/
 
 ### JetBrains template
-.idea
+.idea/
 
