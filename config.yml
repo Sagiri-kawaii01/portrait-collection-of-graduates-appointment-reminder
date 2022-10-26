@@ -9,7 +9,7 @@ mail:
     port: 465
     user: zhiyinnitaimei
   sent:
-  - 2022-10-26
+  - '2022-10-26'
 plan:
 - mail: 12345@qq.com
   openid: abcd
