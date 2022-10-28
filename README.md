@@ -1,5 +1,11 @@
 # 浙江省毕业生人像采集预约提醒，杭州新华社
 
+
+
+[![Github stars](https://img.shields.io/github/stars/Sagiri-kawaii01/portrait-collection-of-graduates-appointment-reminder?logo=github)]([Sagiri-kawaii01/portrait-collection-of-graduates-appointment-reminder: 浙江省毕业生人像采集预约提醒-杭州新华社 (github.com)](https://github.com/Sagiri-kawaii01/portrait-collection-of-graduates-appointment-reminder))[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+
+
 预约公众号为：浙江高校影像
 
 需要先去公众号填写个人信息
