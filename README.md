@@ -2,7 +2,7 @@
 
 
 
-[![Github stars](https://img.shields.io/github/stars/Sagiri-kawaii01/portrait-collection-of-graduates-appointment-reminder?logo=github)](https://github.com/Sagiri-kawaii01/portrait-collection-of-graduates-appointment-reminder)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Github stars](https://img.shields.io/github/stars/Sagiri-kawaii01/portrait-collection-of-graduates-appointment-reminder?logo=github)](https://github.com/Sagiri-kawaii01/portrait-collection-of-graduates-appointment-reminder)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![](https://img.shields.io/badge/Python-%3E%3Dv3.0-blue)
 
 
 
