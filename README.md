@@ -4,11 +4,19 @@
 
 [![Github stars](https://img.shields.io/github/stars/Sagiri-kawaii01/portrait-collection-of-graduates-appointment-reminder?logo=github)](https://github.com/Sagiri-kawaii01/portrait-collection-of-graduates-appointment-reminder)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) ![](https://img.shields.io/badge/Python-%3E%3Dv3.0-blue)
 
+> 稍微有点使用门槛
 
+需要会抓包openid  
+
+* 如果要邮件推送功能，那还得会搞第三方邮箱的smtp
+* 如果要全自动的话，还得有个服务器能来定时执行脚本
+
+
+> 脚本介绍
 
 预约公众号为：浙江高校影像
 
-需要先去公众号填写个人信息
+需要先去公众号填写个人信息，这很重要
 
 ~~官方只提供下一周的预约开放。~~  
 
