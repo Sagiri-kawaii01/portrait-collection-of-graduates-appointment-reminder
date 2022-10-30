@@ -95,7 +95,7 @@ with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='r')
                     appointNum = item['appointNum']
                     dateSlot = item['dateSlot']
                     # 还有剩余人数
-                    if appointCount < appointNum:
+                    if appointCount > appointNum:
                         cnt += 1
                         content += '周' + day_name[i] + '(' + dt[i] + ')' + '时间段：' + dateSlot + '剩余' + str(
                             appointNum - appointCount) + '名额(' + str(appointCount) + '/' + str(appointNum) + ')\n'
