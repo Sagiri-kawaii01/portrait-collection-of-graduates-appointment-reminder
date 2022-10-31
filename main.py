@@ -98,7 +98,7 @@ with open(os.path.dirname(__file__) + '/config.yml', encoding='utf-8', mode='r')
                     if appointCount > appointNum:
                         cnt += 1
                         content += '周' + day_name[i] + '(' + dt[i] + ')' + '时间段：' + dateSlot + '剩余' + str(
-                            appointNum - appointCount) + '名额(' + str(appointCount) + '/' + str(appointNum) + ')\n'
+                            appointCount - appointNum) + '名额(' + str(appointNum) + '/' + str(appointCount) + ')\n'
                         # 在配置文件中寻找想要预约这个事件段的人
                         for p in plan:
                             time_map = p['time']
